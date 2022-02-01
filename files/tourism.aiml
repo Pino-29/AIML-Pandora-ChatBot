@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<!-- insert your AIML categories here -->
+	<category>
+	    <pattern>Hello</pattern>
+	    <template>
+	        Hello, I'm Timo and I'm here to help you.
+	        You can use some coommands in order to know about weather, 
+	        museums and/or videos about cities around the world.
+	    </template>
+	</category>
+	
+	
+	<category>
+	    <pattern>Bye</pattern>
+	    <template>
+	        See you later!
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>WHAT IS THE WEATHER IN *</pattern>
+	    <template>
+	        <think><set name="it"><star/></set></think>
+	        Today the weather in <formal><star/></formal> seems...
+	        <button>
+	            <text>Click here for information about the weather</text>
+	            <url>https://www.weather-forecast.com/locations/<star/>/forecasts/latest</url>
+	        </button>
+	    </template>
+	</category>
+	
+	
+	<category>
+	    <pattern>SHOW ME VIDEOS ABOUT *</pattern>
+	    <template>
+	        <think><set name="it"><star/></set></think>
+	        You can find thousands of videos about <formal><star/></formal> on internet, here are some of them.
+	        <button>
+	            <text>Click here to see videos about <formal><star/></formal></text>
+	            <url>https://www.youtube.com/results?search_query=<star/></url>
+	        </button>
+	    </template>
+	</category>
+	
+	
+	<category>
+	    <pattern>TELL ME SOME MUSEUMS IN *</pattern>
+	    <template>
+	        <think><set name="it"><star/></set></think>
+	        No problem, you can find some museums in next link :D
+	        <button>
+	            <text>Click here to see the list of museums in <formal><star/></formal></text>
+	            <url>https://en.wikipedia.org/wiki/List_of_museums_in_<star/></url>
+	        </button>
+	    </template>
+	</category>
+	
+
+	
+	<category>
+	    <pattern>WHAT IS THE WEATHER IN IT</pattern>
+	    <template>
+	        <condition name = "it">
+	            <li value = "*"><srai>What is the weather in <get name = "it"/></srai></li>
+	            <li>Where do you want to know the weather from?</li>
+	        </condition>
+	    </template>
+	</category>
+	
+	
+	<category>
+	    <pattern>SHOW ME VIDEOS ABOUT IT</pattern>
+	    <template>
+	        <condition name = "it">
+	            <li value = "*"><srai>SHOW ME VIDEOS ABOUT <get name = "it"/></srai></li>
+	            <li>To show videos about what?</li>
+	        </condition>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>TELL ME MUSEUMS IN IT</pattern>
+	    <template>
+	        <condition name = "it">
+	            <li value = "*"><srai>TELL ME MUSEUMS IN <get name = "it"/></srai></li>
+	            <li> Where do you want to see museums from?</li>
+	        </condition>
+	    </template>
+	</category>
+	
+</aiml>
